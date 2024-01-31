@@ -1,0 +1,88 @@
+﻿@model DataAccess.Entity.Customer
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1 id="title">LogIn</h1>
+
+
+<hr />
+<div class="row">
+    <div class="col-md-4" id="shownDiv" style="display:none">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group" id="hiddenDiv1" style="display:block">
+                <label asp-for="City" class="control-label"></label>
+                <input asp-for="City" class="form-control" />
+                <span asp-validation-for="City" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group" id="hiddenDiv2" style="display:block">
+                <label asp-for="PaymentInfo" class="control-label"></label>
+                <select asp-for="PaymentInfo" class="form-control">
+                    <option>Visa</option>
+                    <option>Debit Card</option>
+                    <option>Cash</option>
+                </select>
+                <span asp-validation-for="PaymentInfo" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <input id="btn" type="submit" value="SignUp" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+    <!--//////////////////////////////////////////////////////////////-->
+    <div class="col-md-4" id="hiddenDiv" style="display:block; justify-content:center;">
+        <form asp-action="Check">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <input type="submit" value="LogIn" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<!--//////////////////////////////////////////////////////////////-->
+<br />
+
+<div>
+    <a class="bi bi-eye" onclick="hide()" >Create Account</a>
+</div>
+
+<script>
+    function hide() {
+        /*document.getElementById("hiddenDiv1").style.display = 'none';
+        document.getElementById("hiddenDiv2").style.display = 'none';
+        document.getElementById("btn").value = "LogIn"*/
+
+        document.getElementById("shownDiv").style.display = 'block'
+        document.getElementById("hiddenDiv").style.display = 'none'
+        document.getElementById("title").innerHTML = "Create Account"
+    }
+</script>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

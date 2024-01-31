@@ -1,0 +1,158 @@
+﻿@model IEnumerable<DataAccess.Entity.Product>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<!-- 
+<header>
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container-fluid">
+                
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Customer" asp-action="Index">Customers</a>
+                        </li>
+                        <li class="nav-item">
+                            
+                        <select>
+                            @@for (var cat =0; cat<Model.Count(); cat++)
+                            {
+                                if(Model[cat] != Model[cat - 1])
+                                {
+                                    <option> <a asp-controller="Product" asp-action="Select" asp-route-id="@@Model[cat].Id">Category @@Model[cat].Id</a> </option>
+                                }
+                                <option> <a asp-controller="Product" asp-action="Select" asp-route-id="@@cat.Id">Category @@cat.Id</a> </option>
+                            }
+                        </select>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+</header>-->
+
+
+@{/*
+    List<string> cat = new List<string>();
+    foreach(var item in Model)
+    {
+        if (!cat.Contains(item.Category.Name))
+        {
+            cat.Add(item.Category.Name);
+        }
+    }*/
+}
+<h1>All Products</h1> 
+<form asp-controller="Product" asp-action="Index">
+    <label for="id">Select ID: </label>
+    <select id="id" name="id" asp-route-id="id">
+        <option value="0">All</option>
+        <option value="1">Shoes</option>
+        <option value="2">Mobiles</option>
+        <option value="3">Clothes</option>
+        <option value="4">Watches</option>
+        <!--
+        @@for(int i= 1; i < cat.Count(); i++)
+        {
+            <option value="@@i">@@cat[i-1]</option>
+        }-->
+    </select>
+    <button class="btn btn-outline-success" type="submit">Select</button>
+</form>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Quantity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CategoryId)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Quantity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Category.Name)
+            </td>
+            <td class="align-middle">
+
+                <a class="btn btn-outline-primary" onclick="increase(@item.Id)" asp-controller="Product" asp-action="BuyIdList" asp-route-id="@item.Id"><i class="bi bi-pencil-square"></i> Add to Cart </a> |
+
+                <a class="btn btn-outline-info" asp-action="Details" asp-route-id="@item.Id"> <i class="bi bi-eye"></i> Details </a> |
+                <a class="btn btn-danger text-white" asp-action="Delete" asp-route-id="@item.Id"> <i class="bi bi-trash"></i> Delete </a>
+                
+            </td>
+        </tr>
+} 
+    </tbody>
+</table>
+<!--
+    I want to select the products id that it should purchased in the list and to pass it in Buy view
+-->
+<a class="btn btn-outline-success" asp-action="Buy" id="counter"> 0 </a>
+
+<!--<my-tag-helper id="myElement" some-attribute="someValue" dynamic-attribute="" data-dynamic-value-list="">-->
+<script>
+    var counter = 0;
+    var list = [];
+    function update() {
+        document.getElementById("counter").innerHTML = counter;
+    }
+    function increase(id) {
+        console.log(list);
+        document.getElementById("counter").innerHTML = counter++;
+        update();
+        IdList(id);
+
+    }
+    function buyButton() {
+        var dynamicList = JSON.stringify(list);
+        document.getElementById("myElement").setAttribute("data-dynamic-value-list", dynamicList);
+    }
+    function IdList(_id) {
+        list.push(_id);
+        return list;
+    }
+</script>

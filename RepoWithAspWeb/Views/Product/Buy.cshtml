@@ -1,0 +1,85 @@
+﻿@model List<DataAccess.Entity.Product>
+@{
+    ViewData["Title"] = "Cart";
+}
+
+<h1>Products</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Product Name
+            </th>
+            <th>
+                Product Price
+            </th>
+            <th>
+                Category
+            </th>
+            <th>
+                Current in Stock
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.Name
+                </td>
+                <td>
+                    @item.Price
+                </td>
+                <td>
+                    @item.Category.Name
+                </td>
+                <td>
+                    @item.Quantity 
+                </td>
+                <td class="align-middle">
+                    <a class="btn btn-outline-primary" asp-action="IncreaseBuyList" asp-route-id="@item.Id"><i class="bi bi-pencil-square"></i> + </a>
+                    <a class="btn btn-outline-info" asp-action="DecreaseBuyList" asp-route-id="@item.Id"><i class="bi bi-eye"></i> - </a>
+                </td>
+            </tr>
+
+        }
+        <tr>
+            <td></td>
+            <td></td>
+            <td> <a class="btn btn-outline-success" asp-controller="Customer" asp-action="Create"> Buy </a> </td>
+            <td></td>
+            <td></td>
+        </tr>
+
+        
+        
+    </tbody>
+</table>
+
+<br />
+
+<div class="col-md-4" id="hiddenDiv" style="display:none; justify-content:center;">
+    <h3>LogIn</h3>
+    <form asp-controller="Customer" asp-action="Check">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <label for="Name" class="control-label"></label>
+            <input for="Name" class="form-control" />
+            <span class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label for="Email" class="control-label"></label>
+            <input for="Email" class="form-control" />
+            <span class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <input type="submit" value="LogIn" class="btn btn-primary"  />
+        </div>
+    </form>
+</div>
+
+
+

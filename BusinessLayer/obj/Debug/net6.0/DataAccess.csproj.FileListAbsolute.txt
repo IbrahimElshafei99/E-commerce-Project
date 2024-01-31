@@ -1,0 +1,14 @@
+D:\Elsewedy\Projects\RepoWithAspWeb\BusinessLayer\bin\Debug\net6.0\DataAccess.deps.json
+D:\Elsewedy\Projects\RepoWithAspWeb\BusinessLayer\bin\Debug\net6.0\DataAccess.runtimeconfig.json
+D:\Elsewedy\Projects\RepoWithAspWeb\BusinessLayer\bin\Debug\net6.0\DataAccess.dll
+D:\Elsewedy\Projects\RepoWithAspWeb\BusinessLayer\bin\Debug\net6.0\DataAccess.pdb
+D:\Elsewedy\Projects\RepoWithAspWeb\BusinessLayer\obj\Debug\net6.0\DataAccess.csproj.AssemblyReference.cache
+D:\Elsewedy\Projects\RepoWithAspWeb\BusinessLayer\obj\Debug\net6.0\DataAccess.GeneratedMSBuildEditorConfig.editorconfig
+D:\Elsewedy\Projects\RepoWithAspWeb\BusinessLayer\obj\Debug\net6.0\DataAccess.AssemblyInfoInputs.cache
+D:\Elsewedy\Projects\RepoWithAspWeb\BusinessLayer\obj\Debug\net6.0\DataAccess.AssemblyInfo.cs
+D:\Elsewedy\Projects\RepoWithAspWeb\BusinessLayer\obj\Debug\net6.0\DataAccess.csproj.CoreCompileInputs.cache
+D:\Elsewedy\Projects\RepoWithAspWeb\BusinessLayer\obj\Debug\net6.0\DataAccess.dll
+D:\Elsewedy\Projects\RepoWithAspWeb\BusinessLayer\obj\Debug\net6.0\refint\DataAccess.dll
+D:\Elsewedy\Projects\RepoWithAspWeb\BusinessLayer\obj\Debug\net6.0\DataAccess.pdb
+D:\Elsewedy\Projects\RepoWithAspWeb\BusinessLayer\obj\Debug\net6.0\DataAccess.genruntimeconfig.cache
+D:\Elsewedy\Projects\RepoWithAspWeb\BusinessLayer\obj\Debug\net6.0\ref\DataAccess.dll
